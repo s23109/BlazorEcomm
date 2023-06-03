@@ -14,12 +14,18 @@ namespace BlazorEcomm.Server.Controllers
             this._context = dbContext;
         }
 
-
+        
         [HttpGet]
-        public async Task<ActionResult<List<Product>>> GetProduct()
+        public async Task<ActionResult<ServiceResponse<List<Product>>>> GetProduct()
         {
-            var Products = await _context.Products.ToListAsync();
-            return Ok(Products);
+            var products = await _context.Products.ToListAsync();
+
+            var response = new ServiceResponse<List<Product>>()
+            {
+                Data = products
+            };
+
+            return Ok(response);
         }
 
     }
