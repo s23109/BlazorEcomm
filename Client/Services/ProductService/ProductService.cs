@@ -7,17 +7,13 @@ namespace BlazorEcomm.Client.Services.ProductService
     {
         private readonly HttpClient _httpClient;
 
+        public event Action ProductsChanged;
+
         public ProductService(HttpClient httpClient)
         {
             this._httpClient = httpClient;
         }
         public List<Product> Products { get; set; } = new List<Product>();
-
-        public async Task GetProducts()
-        {
-            var result = await _httpClient.GetFromJsonAsync<ServiceResponse<List<Product>>>("/api/Product");
-            if (result != null && result.Data != null) Products = result.Data;
-        }
 
         public async Task<ServiceResponse<Product>> GetProductById(int Id)
         {
@@ -25,5 +21,14 @@ namespace BlazorEcomm.Client.Services.ProductService
             return result;
         }
 
+        public async Task GetProducts(string? categoryUrl = null)
+        {
+            var result = categoryUrl == null ? 
+                await _httpClient.GetFromJsonAsync<ServiceResponse<List<Product>>>("/api/Product"):
+                await _httpClient.GetFromJsonAsync<ServiceResponse<List<Product>>>($"/api/Product/{categoryUrl}");
+            if (result != null && result.Data != null) Products = result.Data;
+
+            ProductsChanged.Invoke();
+        }
     }
 }
