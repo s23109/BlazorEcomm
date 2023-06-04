@@ -1,5 +1,6 @@
 global using BlazorEcomm.Client.Services.ProductService;
 global using BlazorEcomm.Client.Services.CategoryService;
+global using BlazorEcomm.Shared;
 using BlazorEcomm.Client;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;

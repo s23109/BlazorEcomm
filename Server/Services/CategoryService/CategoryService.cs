@@ -18,9 +18,5 @@ namespace BlazorEcomm.Server.Services.CategoryService
             return new ServiceResponse<List<Category>> { Data=categories };
         }
 
-        public Task<ServiceResponse<Category>> GetCategoryById(int id)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

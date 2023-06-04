@@ -15,8 +15,4 @@
     <ProjectReference Include="..\Shared\BlazorEcomm.Shared.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Services\Nowy folder\" />
-  </ItemGroup>
-
 </Project>
