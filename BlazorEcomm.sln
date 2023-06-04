@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorEcomm.Server", "Server\BlazorEcomm.Server.csproj", "{AB70CB58-4A4C-431C-A96C-E515476213D6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorEcomm.Server", "Server\BlazorEcomm.Server.csproj", "{AB70CB58-4A4C-431C-A96C-E515476213D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorEcomm.Client", "Client\BlazorEcomm.Client.csproj", "{B49A06F9-1485-44FE-9869-9CBC960C897C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorEcomm.Client", "Client\BlazorEcomm.Client.csproj", "{B49A06F9-1485-44FE-9869-9CBC960C897C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorEcomm.Shared", "Shared\BlazorEcomm.Shared.csproj", "{E2A44E7C-4A72-404F-97DF-D7A4CA33E55A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorEcomm.Shared", "Shared\BlazorEcomm.Shared.csproj", "{E2A44E7C-4A72-404F-97DF-D7A4CA33E55A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

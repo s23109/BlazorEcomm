@@ -18,5 +18,12 @@ namespace BlazorEcomm.Client.Services.ProductService
             var result = await _httpClient.GetFromJsonAsync<ServiceResponse<List<Product>>>("/api/Product");
             if (result != null && result.Data != null) Products = result.Data;
         }
+
+        public async Task<ServiceResponse<Product>> GetProductById(int Id)
+        {
+            var result = await _httpClient.GetFromJsonAsync<ServiceResponse<Product>>($"/api/Product/{Id}");
+            return result;
+        }
+
     }
 }

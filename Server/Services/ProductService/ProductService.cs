@@ -9,6 +9,26 @@ namespace BlazorEcomm.Server.Services.ProductService
         {
             _dbContext = dbContext;
         }
+
+        public async Task<ServiceResponse<Product>> GetProductByIdAsync(int Id)
+        {
+            var response = new ServiceResponse<Product>();
+            var product = await _dbContext.Products.FindAsync(Id);
+
+            if (product == null)
+            {
+                response.Success= false;
+                response.Message = "Product does not exist";
+            }
+            else
+            {
+                response.Data = product;
+            }
+
+            return response;
+
+        }
+
         public async Task<ServiceResponse<List<Product>>> GetProductsAsync()
         {
             var response = new ServiceResponse<List<Product>>()

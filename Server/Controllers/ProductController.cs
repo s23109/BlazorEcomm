@@ -9,16 +9,22 @@ namespace BlazorEcomm.Server.Controllers
     public class ProductController : ControllerBase
     {
         private readonly IProductService _service;
-        
+
         public ProductController(IProductService service) {
             this._service = service;
         }
 
-        
+
         [HttpGet]
         public async Task<ActionResult<ServiceResponse<List<Product>>>> GetProduct()
         {
             return Ok(await _service.GetProductsAsync());
+        }
+
+        [HttpGet("{Id}")]
+        public async Task<ActionResult<ServiceResponse<Product>>> GetProductById(int Id)
+        {
+            return Ok(await _service.GetProductByIdAsync(Id));
         }
 
     }
