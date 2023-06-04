@@ -41,9 +41,9 @@ namespace BlazorEcomm.Server.Services.ProductService
 
         public async Task<ServiceResponse<List<Product>>> GetProductsByCategoryAsync(string categoryUrl)
         {
-            var response = new ServiceResponse<List<Product>>()
-            {
-                Data = await _dbContext.Products.Where( p => p.Category.Url.ToLower().Equals(categoryUrl.ToLower())).ToListAsync()
+            var products = await _dbContext.Products.Where(p => p.Category.Url.ToLower().Equals(categoryUrl.ToLower())).ToListAsync();
+            var response = new ServiceResponse<List<Product>>(){
+                Data = products
             };
 
             return response;
