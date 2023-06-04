@@ -1,14 +1,14 @@
+global using BlazorEcomm.Server.Services.CategoryService;
+global using BlazorEcomm.Server.Services.ProductService;
 global using BlazorEcomm.Shared;
 global using Microsoft.EntityFrameworkCore;
-global using Microsoft.AspNetCore.ResponseCompression;
-global using BlazorEcomm.Server.Services.ProductService;
 using BlazorEcomm.Server.Data;
-using BlazorEcomm.Server.Services.ProductService;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddDbContext<MyDbContext>(options => {
+builder.Services.AddDbContext<MyDbContext>(options =>
+{
     options.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
 });
 
@@ -18,7 +18,8 @@ builder.Services.AddRazorPages();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<IProductService,ProductService>();
+builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
 
 var app = builder.Build();
 
