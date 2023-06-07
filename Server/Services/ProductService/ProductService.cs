@@ -48,5 +48,18 @@ namespace BlazorEcomm.Server.Services.ProductService
 
             return response;
         }
+
+        public async Task<ServiceResponse<List<Product>>> SearchProduct(string searchText)
+        {
+            //both title and desc check 
+            var response = new ServiceResponse<List<Product>> {
+                Data = await _dbContext.Products.Where(p => p.Title.ToLower().Contains(searchText.ToLower())
+                || p.Description.ToLower().Contains(searchText.ToLower()))
+                .Include(p => p.Variants)
+                .ToListAsync()
+            };
+
+            return response;
+        }
     }
 }
