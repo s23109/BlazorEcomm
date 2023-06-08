@@ -9,5 +9,7 @@
         Task<ServiceResponse<List<Product>>> GetProductsByCategoryAsync(string categoryUrl);
 
         Task<ServiceResponse<List<Product>>> SearchProduct(string searchText);
+
+        Task<ServiceResponse<List<string>>> GetProductSearchSuggestions(string searchText);
     }
 }
